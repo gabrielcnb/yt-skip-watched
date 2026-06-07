@@ -1,0 +1,36 @@
+{
+  "extName": { "message": "YT Skip Watched" },
+  "extDescription": {
+    "message": "Esconde, atenua e/ou pula automaticamente vídeos que você já assistiu no YouTube (detectados pela barra vermelha de progresso)."
+  },
+  "headerTitle": { "message": "Skip Watched" },
+  "hideLabel": { "message": "Agir nos vídeos vistos" },
+  "hideSub": { "message": "Esconde ou atenua vídeos já assistidos nas listas" },
+  "modeLabel": { "message": "Quando assistido" },
+  "modeHide": { "message": "Esconder" },
+  "modeDim": { "message": "Atenuar" },
+  "skipLabel": { "message": "Pular na fila" },
+  "skipSub": { "message": "Avança se o Mix/playlist cair num já visto" },
+  "skipAutoplayLabel": { "message": "Pular no autoplay" },
+  "skipAutoplaySub": { "message": "Experimental: na página de vídeo, vai para o próximo relacionado não-visto" },
+  "thresholdLabel": { "message": "Considerar visto a partir de" },
+  "surfacesLabel": { "message": "Aplicar em" },
+  "surfacesSub": { "message": "Escolha em quais páginas isto roda" },
+  "surfaceHome": { "message": "Início" },
+  "surfaceSearch": { "message": "Busca" },
+  "surfaceSubs": { "message": "Inscrições" },
+  "surfaceChannel": { "message": "Canal" },
+  "surfaceRelated": { "message": "Relacionados" },
+  "statPage": { "message": "nesta página" },
+  "statHidden": { "message": "escondidos no total" },
+  "statSkipped": { "message": "pulados no total" },
+  "resetStats": { "message": "Zerar totais" },
+  "whitelistTitle": { "message": "Nunca agir em (lista branca)" },
+  "whitelistSub": { "message": "Artistas/canais ou palavras-chave, um por linha" },
+  "whitelistPlaceholder": { "message": "Ex.: Yung Lean\nLIL UZI VERT\nlo-fi" },
+  "whitelistSave": { "message": "Salvar lista branca" },
+  "whitelistSaved": { "message": "Salvo!" },
+  "footer": {
+    "message": "Detecta pela barra vermelha de progresso da thumbnail."
+  }
+}

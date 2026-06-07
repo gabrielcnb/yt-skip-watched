@@ -1,0 +1,36 @@
+{
+  "extName": { "message": "YT Skip Watched" },
+  "extDescription": {
+    "message": "Hides, dims, and/or auto-skips videos you've already watched on YouTube (detected by the red progress bar)."
+  },
+  "headerTitle": { "message": "Skip Watched" },
+  "hideLabel": { "message": "Act on watched videos" },
+  "hideSub": { "message": "Hides or dims already-watched videos in lists" },
+  "modeLabel": { "message": "When watched" },
+  "modeHide": { "message": "Hide" },
+  "modeDim": { "message": "Dim" },
+  "skipLabel": { "message": "Auto-skip in queue" },
+  "skipSub": { "message": "Advances if a Mix/playlist lands on a watched one" },
+  "skipAutoplayLabel": { "message": "Auto-skip on autoplay" },
+  "skipAutoplaySub": { "message": "Experimental: on a watch page, jumps to the next unwatched related video" },
+  "thresholdLabel": { "message": "Count as watched from" },
+  "surfacesLabel": { "message": "Apply on" },
+  "surfacesSub": { "message": "Choose which pages this runs on" },
+  "surfaceHome": { "message": "Home" },
+  "surfaceSearch": { "message": "Search" },
+  "surfaceSubs": { "message": "Subscriptions" },
+  "surfaceChannel": { "message": "Channel" },
+  "surfaceRelated": { "message": "Related" },
+  "statPage": { "message": "on this page" },
+  "statHidden": { "message": "hidden total" },
+  "statSkipped": { "message": "skipped total" },
+  "resetStats": { "message": "Reset totals" },
+  "whitelistTitle": { "message": "Never act on (whitelist)" },
+  "whitelistSub": { "message": "Artists/channels or keywords, one per line" },
+  "whitelistPlaceholder": { "message": "e.g.: Yung Lean\nLIL UZI VERT\nlo-fi" },
+  "whitelistSave": { "message": "Save whitelist" },
+  "whitelistSaved": { "message": "Saved!" },
+  "footer": {
+    "message": "Detects via the thumbnail's red progress bar."
+  }
+}

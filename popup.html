@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        width: 280px;
+        margin: 0;
+        font-family: "Roboto", system-ui, sans-serif;
+        background: #0f0f0f;
+        color: #f1f1f1;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      header .title span { color: #ff4d4d; }
+      .muted { opacity: 0.45; pointer-events: none; }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-top: 1px solid #272727;
+      }
+      .row .label { font-size: 13px; }
+      .row .sub { font-size: 11px; color: #aaa; margin-top: 2px; max-width: 190px; }
+
+      .switch { position: relative; width: 40px; height: 22px; flex: 0 0 auto; }
+      .switch input { display: none; }
+      .slider {
+        position: absolute; inset: 0; cursor: pointer;
+        background: #444; border-radius: 22px; transition: 0.2s;
+      }
+      .slider::before {
+        content: ""; position: absolute; height: 16px; width: 16px;
+        left: 3px; top: 3px; background: #fff; border-radius: 50%;
+        transition: 0.2s;
+      }
+      input:checked + .slider { background: #ff4d4d; }
+      input:checked + .slider::before { transform: translateX(18px); }
+
+      .section { padding: 12px 16px; border-top: 1px solid #272727; }
+      .section .label { font-size: 13px; margin-bottom: 8px; }
+      .section .sub { font-size: 11px; color: #aaa; margin: 2px 0 8px; }
+
+      /* segmented control: esconder / atenuar */
+      .segmented { display: flex; gap: 6px; }
+      .segmented button {
+        flex: 1; background: #181818; color: #ddd; border: 1px solid #303030;
+        border-radius: 8px; padding: 7px 0; font-size: 12px; cursor: pointer;
+        font-family: inherit;
+      }
+      .segmented button.active {
+        background: #ff4d4d; color: #fff; border-color: #ff4d4d; font-weight: 600;
+      }
+
+      input[type="range"] { width: 100%; accent-color: #ff4d4d; }
+      .val { color: #ff4d4d; font-weight: 600; }
+
+      /* chips de superficie */
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+      .chips button {
+        background: #181818; color: #aaa; border: 1px solid #303030;
+        border-radius: 16px; padding: 5px 11px; font-size: 12px; cursor: pointer;
+        font-family: inherit;
+      }
+      .chips button.active {
+        background: #2a1a1a; color: #ff8a8a; border-color: #ff4d4d;
+      }
+
+      /* estatisticas */
+      .stats { display: flex; gap: 8px; }
+      .stat {
+        flex: 1; background: #181818; border: 1px solid #272727;
+        border-radius: 8px; padding: 10px; text-align: center;
+      }
+      .stat .num { color: #ff4d4d; font-weight: 700; font-size: 18px; display: block; }
+      .stat .cap { font-size: 10px; color: #aaa; margin-top: 2px; }
+      .reset {
+        margin-top: 8px; background: none; color: #888; border: none;
+        font-size: 11px; cursor: pointer; padding: 0; font-family: inherit;
+      }
+      .reset:hover { color: #ff4d4d; }
+
+      textarea {
+        width: 100%; box-sizing: border-box; height: 70px; resize: vertical;
+        background: #181818; color: #f1f1f1; border: 1px solid #303030;
+        border-radius: 6px; padding: 8px; font-size: 12px; font-family: inherit;
+      }
+      .whitelist button {
+        margin-top: 8px; background: #ff4d4d; color: #fff; border: none;
+        border-radius: 18px; padding: 7px 14px; font-size: 12px; font-weight: 600;
+        cursor: pointer;
+      }
+      .whitelist button:active { transform: scale(0.97); }
+      .whitelist .saved { color: #4ddf7d; font-size: 12px; margin-left: 8px; }
+
+      footer {
+        padding: 10px 16px; font-size: 11px; color: #888;
+        border-top: 1px solid #272727;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="title">YT <span data-i18n="headerTitle">Skip Watched</span></div>
+      <label class="switch">
+        <input type="checkbox" id="enabled" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <div id="controls">
+      <div class="row">
+        <div>
+          <div class="label" data-i18n="hideLabel"></div>
+          <div class="sub" data-i18n="hideSub"></div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hide" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="section">
+        <div class="label" data-i18n="modeLabel"></div>
+        <div class="segmented">
+          <button id="modeHide" data-mode="hide" data-i18n="modeHide"></button>
+          <button id="modeDim" data-mode="dim" data-i18n="modeDim"></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label" data-i18n="skipLabel"></div>
+          <div class="sub" data-i18n="skipSub"></div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="skip" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label" data-i18n="skipAutoplayLabel"></div>
+          <div class="sub" data-i18n="skipAutoplaySub"></div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="skipAutoplay" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="section">
+        <div class="label">
+          <span data-i18n="thresholdLabel"></span>
+          <span class="val" id="tval">5</span>%
+        </div>
+        <input type="range" id="threshold" min="1" max="95" value="5" />
+      </div>
+
+      <div class="section">
+        <div class="label" data-i18n="surfacesLabel"></div>
+        <div class="sub" data-i18n="surfacesSub"></div>
+        <div class="chips">
+          <button data-surface="home" data-i18n="surfaceHome"></button>
+          <button data-surface="search" data-i18n="surfaceSearch"></button>
+          <button data-surface="subscriptions" data-i18n="surfaceSubs"></button>
+          <button data-surface="channel" data-i18n="surfaceChannel"></button>
+          <button data-surface="related" data-i18n="surfaceRelated"></button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="stats">
+          <div class="stat">
+            <span class="num" id="pageCount">0</span>
+            <div class="cap" data-i18n="statPage"></div>
+          </div>
+          <div class="stat">
+            <span class="num" id="totalHidden">0</span>
+            <div class="cap" data-i18n="statHidden"></div>
+          </div>
+          <div class="stat">
+            <span class="num" id="totalSkipped">0</span>
+            <div class="cap" data-i18n="statSkipped"></div>
+          </div>
+        </div>
+        <button class="reset" id="resetStats" data-i18n="resetStats"></button>
+      </div>
+
+      <div class="section whitelist">
+        <div class="label" data-i18n="whitelistTitle"></div>
+        <div class="sub" data-i18n="whitelistSub"></div>
+        <textarea id="whitelist" data-i18n-ph="whitelistPlaceholder"></textarea>
+        <div>
+          <button id="saveWl" data-i18n="whitelistSave"></button>
+          <span class="saved" id="savedMsg" style="display:none"
+            data-i18n="whitelistSaved"></span>
+        </div>
+      </div>
+    </div>
+
+    <footer data-i18n="footer"></footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+/* Acao sobre os cards marcados como ja assistidos. */
+
+/* Modo esconder: remove do fluxo, sem deixar buraco. */
+[data-ytsw-hidden="1"][data-ytsw-mode="hide"] {
+  display: none !important;
+}
+
+/* Modo atenuar: mantem visivel, porem apagado. Hover restaura. */
+[data-ytsw-hidden="1"][data-ytsw-mode="dim"] {
+  opacity: 0.35;
+  filter: grayscale(0.7);
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+[data-ytsw-hidden="1"][data-ytsw-mode="dim"]:hover {
+  opacity: 1;
+  filter: none;
+}
