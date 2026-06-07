@@ -8,6 +8,8 @@ Chrome extension that hides, dims, or auto-skips YouTube videos you've already w
 
 YouTube keeps recommending things you've already seen. This removes them from the picture. No build step, no dependencies, no tracking. Just a content script and a popup.
 
+<img src="docs/popup.png" alt="YT Skip Watched popup" width="320">
+
 ## Features
 
 - **Hide or dim** already-watched videos in lists (dim keeps them visible but faded, restored on hover)
