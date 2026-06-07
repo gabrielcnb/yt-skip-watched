@@ -1,4 +1,4 @@
-// YT Skip Watched — esconde/atenua e/ou pula videos ja assistidos (barra vermelha).
+// YT Skip Watched: esconde/atenua e/ou pula videos ja assistidos (barra vermelha).
 
 const DEFAULTS = {
   enabled: true, // interruptor mestre
@@ -318,7 +318,7 @@ function applySkip() {
     if (link) link.click();
     else clickNext();
   } else {
-    // toda a fila visivel ja foi vista — pula uma so vez e deixa o YouTube
+    // toda a fila visivel ja foi vista. pula uma so vez e deixa o YouTube
     // carregar mais itens; a proxima passada reavalia
     clickNext();
   }
